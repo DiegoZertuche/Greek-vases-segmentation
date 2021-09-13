@@ -22,15 +22,24 @@ Object recognition models share similar components as image classifications mode
 ### AI and ML for artworks
 Different museums and artwork centres have expressed interest in developing automatic analysis of their pieces. For instance, in 2019 the Metropolitan Museum of Art in New York uploaded a challenge to Kaggle for the recognition of artwork attributes within their collection. Multiple works have addressed object detection within artworks such as [6], [7] and [8].They relied either on CNN feature extractors or more specifically in Image Segmentation models. They are all closely related to our setting, though they are mostly applied to paintings, all with well-delimited boundaries. In the current setting, greek vases present an additional challenge imposed by the variable zoom and angle of the paintings within each vase image.
 
+## Data
+
+### Getting Labeled Images from Labelbox
+
+Given the problem that there were multiple images with different angles of the vases, we had to go through all the shield images manually and label the images that actually had a visible shield in the image. We used [Labelbox](https://labelbox.com/) for this task. We then downloaded the manually labeled data from Labelbox and loaded only the images that actually had the shields in the image and had around 1,800 images with shields. We took a random sample of the non-shield images that matched the size of our shield data, and this is how we created our working dataset for the classification model. We split the data in train and test partitions, taking into account the vase numbers, to ensure that different images from the same vase were not in the train and test set.
+
+![Original Mask](imgs/seg_target.png?raw=true)
+<b>Image Credits - Fig.2 - 4K Mountains Wallpaper</b>
+
 ## Results
 
 ### Classifier
 
+Once we had our labeled dataset we fitted a shield classification model, where a 0 prediction is equivalent to "no shield" in the image while a 1 indicates the presence of a "shield" in the vase painting. We used an inception inspired model given it is one of the state of the art models of CNN models for image classification [11].
+
 We see that our model classification model achieves 64% and 65% accuracy on train and test sets correspondingly; given that we are working on a balanced setting, this results are positive. We can conclude that, even though the dataset size is limited, the model is able to detect shields patterns within an image and generalize it to further vases. This leads us to develop a segmentation model for detecting the position of a shield within a vase image.
 
 ### Segmentation
-
-![Original Mask](imgs/seg_target.png?raw=true)
 
 ![Predicted Mask](imgs/seg_pred.png?raw=true)
 
