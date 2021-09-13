@@ -30,7 +30,9 @@ We see that our model classification model achieves 64% and 65% accuracy on trai
 
 ### Segmentation
 
-![Alt text](imgs/seg_pred.png?raw=true "Title")
+![Original Mask](imgs/seg_target.png?raw=true)
+
+![Predicted Mask](imgs/seg_pred.png?raw=true)
 
 The resulting images on the validation set show that our model can detect the position of a shield within a vase image. It misses the exact shape, especially for paintings with thin strokes, which is not surprising. These results are promising and suggest that we could further improve our model if we increased our masking dataset. We conclude that classification and automatic model detection is feasible for greek vases images; this could be extended to other objects within greek vases.
 
