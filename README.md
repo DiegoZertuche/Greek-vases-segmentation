@@ -61,7 +61,7 @@ We had to build a segmentation dataset using the same tool as we did for labelli
 
 Once we had our labeled dataset we fitted a shield classification model, where a 0 prediction is equivalent to "no shield" in the image while a 1 indicates the presence of a "shield" in the vase painting. We used an inception inspired model given it is one of the state of the art models of CNN models for image classification [11].
 
-![Original Mask](imgs/train_cm.png){:height="36px" width="36px" }
+<img src="imgs/train_cm.png" width="50" height="50">
 <b>Fig 2. Confussion matrix over train set. </b>
 
 ![Original Mask](imgs/test_cm.png){:height="36px" width="36px" }
