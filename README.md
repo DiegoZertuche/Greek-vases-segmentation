@@ -29,7 +29,7 @@ Different museums and artwork centres have expressed interest in developing auto
 Given the problem that there were multiple images with different angles of the vases, we had to go through all the shield images manually and label the images that actually had a visible shield in the image. We used [Labelbox](https://labelbox.com/) for this task. We then downloaded the manually labeled data from Labelbox and loaded only the images that actually had the shields in the image and had around 1,800 images with shields. We took a random sample of the non-shield images that matched the size of our shield data, and this is how we created our working dataset for the classification model. We split the data in train and test partitions, taking into account the vase numbers, to ensure that different images from the same vase were not in the train and test set.
 
 ![Original Mask](imgs/seg_target.png?raw=true)
-<b>Image Credits - Fig.2 - 4K Mountains Wallpaper</b>
+| <b>Image Credits - Fig.2 - 4K Mountains Wallpaper</b>|
 
 ## Results
 
