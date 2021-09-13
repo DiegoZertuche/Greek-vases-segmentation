@@ -43,7 +43,7 @@ Different museums and artwork centres have expressed interest in developing auto
 
 # Data
 
-All greek images data comes from [Arms and Armor](https://armsandarmor.orphe.us/). All the data used in this work may be accesed [here](https://drive.google.com/drive/folders/1-0yVxBM_1EHl26H6nhcBYL4v85uyJMQz?usp=sharing)
+All greek images data comes from [Arms and Armor](https://armsandarmor.orphe.us/). All the data used in this work may be accesed [here](https://drive.google.com/drive/folders/1-0yVxBM_1EHl26H6nhcBYL4v85uyJMQz?usp=sharing).
 
 ## Getting Images *Labels* and *Masks* from Labelbox
 
