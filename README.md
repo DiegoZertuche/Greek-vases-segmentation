@@ -61,10 +61,10 @@ We had to build a segmentation dataset using the same tool as we did for labelli
 
 Once we had our labeled dataset we fitted a shield classification model, where a 0 prediction is equivalent to "no shield" in the image while a 1 indicates the presence of a "shield" in the vase painting. We used an inception inspired model given it is one of the state of the art models of CNN models for image classification [11].
 
-![Original Mask](imgs/train_cm.png){ height="36px" width="36px" }
+![Original Mask](imgs/train_cm.png){:height="36px" width="36px" }
 <b>Fig 2. Confussion matrix over train set. </b>
 
-![Original Mask](imgs/test_cm.png){ height="36px" width="36px" }
+![Original Mask](imgs/test_cm.png){:height="36px" width="36px" }
 <b>Fig 3. Confussion matrix over test set. </b>
 
 We see that our model classification model achieves 64% and 65% accuracy on train and test sets correspondingly; given that we are working on a balanced setting, this results are positive. We can conclude that, even though the dataset size is limited, the model is able to detect shields patterns within an image and generalize it to further vases. This leads us to develop a segmentation model for detecting the position of a shield within a vase image.
