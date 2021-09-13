@@ -9,10 +9,16 @@ The current work was carried on in collaboration with Natasha Bershadsky, Lectur
 
 # Table of Contents
 1. [Motivation, context & framing of the problem](#motivation,-context-&-framing-of-the-problem)
-  1.1 [Introduction](##introduction)
-3. [Data](#data)
+  1. [Introduction](#introduction)
+  2. [Related work](#related-work)
+    1. [Image classification and segmentation](#image-classification-and-segmentation)
+    2. [AI and ML for artworks](#AI-and-ML-for-artworks)
+2. [Data](#data)
+  1. [Getting Images *Labels* and *Masks* from Labelbox](#getting-images-*labels*-and-*masks*-from-labelbox)
 4. [Results](#results)
-5. [References](#references)
+  1. [Classifier](#classifier)
+  2. [Segmentation](#segmentation)
+6. [References](#references)
 
 # Motivation, context & framing of the problem
 
@@ -43,7 +49,7 @@ All greek images data comes from [Arms and Armor](https://armsandarmor.orphe.us/
 ### Classification Labels
 Given the problem that there were multiple images with different angles of the vases, we had to go through all the shield images manually and label the images that actually had a visible shield in the image. We used [Labelbox](https://labelbox.com/) for this task. We then downloaded the manually labeled data from Labelbox and loaded only the images that actually had the shields in the image and had around 1,800 images with shields. We took a random sample of the non-shield images that matched the size of our shield data, and this is how we created our working dataset for the classification model. We split the data in train and test partitions, taking into account the vase numbers, to ensure that different images from the same vase were not in the train and test set.
 
-## Segmentation maks
+### Segmentation masks
 We had to build a segmentation dataset using the same tool as we did for labelling images (LabelBox). Given the time required to hand-make the masks and our uncertainty of how difficult the task was for the model, we decided to filter shields that were "easy" for detection. We selected half of the most promising vase images for mask making, with clear views of the shields and where the shields followed conventional shapes (very rounded or oval). The resulting masked dataset contains 852 masked images, further splitted into train, test and validation sets.
 
 ![Original Mask](imgs/seg_target.png?raw=true)
