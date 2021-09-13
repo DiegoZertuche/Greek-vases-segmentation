@@ -105,6 +105,7 @@ Once we had our labeled dataset we fitted a shield classification model, where a
 
 <img src="imgs/test_cm.png" width="400" height="400">
 <b>Fig 5. Confussion matrix over test set. </b>
+&nbsp;
 
 We see that our model classification model achieves 64% and 65% accuracy on train and test sets correspondingly; given that we are working on a balanced setting, this results are positive. We can conclude that, even though the dataset size is limited, the model is able to detect shields patterns within an image and generalize it to further vases. This leads us to develop a segmentation model for detecting the position of a shield within a vase image.
 
@@ -112,6 +113,7 @@ We see that our model classification model achieves 64% and 65% accuracy on trai
 
 ![Predicted Mask](imgs/seg_pred.png?raw=true)
 <b>Fig 6. Images with predicted shields sample. The yellow area corresponds to the predicted mask by our model. </b>
+&nbsp;
 
 The resulting images on the validation set show that our model can detect the position of a shield within a vase image. It misses the exact shape, especially for paintings with thin strokes, which is not surprising. These results are promising and suggest that we could further improve our model if we increased our masking dataset. **We conclude that classification and automatic model detection is feasible for greek vases images; this could be extended to other objects within greek vases.**
 
