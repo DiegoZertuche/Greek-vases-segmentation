@@ -71,6 +71,7 @@ Once we had our labeled dataset we fitted a shield classification model, where a
 | Number of Parameters | Number of Epochs | Optimizer | Loss | Input dim | Output dim |
 | :--- | :----: | :----: | :----: | :----: | ---: |
 | 7,188,889 | 100 | Adam | Binary cross-entropy | (256,256,) | (1,) |
+
 <b>Table 1. Classification model overview. </b>
 
 
@@ -87,6 +88,7 @@ We used a U-net inspired model given it is one of the state of the art models of
 | Number of Parameters | Number of Epochs | Optimizer | Loss | Input dim | Output dim |
 | :--- | :----: | :----: | :----: | :----: | ---: |
 | 688,129 | 50 | Adam | Weighted** binary cross-entropy | (256,256,) | (256,256,) |
+
 <b>Table 2. Segmentation model overview. </b>
 
 
