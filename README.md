@@ -15,10 +15,13 @@ The current work was carried on in collaboration with Natasha Bershadsky, Lectur
         2. [AI and ML for artworks](#AI-and-ML-for-artworks)
 2. [Data](#data)
     1. [Getting Images *Labels* and *Masks* from Labelbox](#getting-images-labels-and-masks-from-labelbox)
-3. [Results](#results)
-    1. [Classifier](#classifier)
-    2. [Segmentation](#segmentation)
-4. [References](#references)
+3. [Models](#models)
+    1. [Classification](#classification-model)
+    2. [Segmentation](#segmentation-model)
+5. [Results](#results)
+    1. [Classification](#classification-results)
+    2. [Segmentation](#segmentation-results)
+6. [References](#references)
 
 # Motivation, context & framing of the problem
 
@@ -56,9 +59,9 @@ We had to build a segmentation dataset using the same tool as we did for labelli
 ![Original Mask](imgs/seg_target.png?raw=true)
 <b>Fig 1. Images with target shields sample. The yellow area corresponds to the hand-marked mask. </b>
 
-# Model
+# Models
 
-## Clasiffier
+## Clasiffication <a name="classification-model"></a>
 
 Once we had our labeled dataset we fitted a shield classification model, where a 0 prediction is equivalent to "no shield" in the image while a 1 indicates the presence of a "shield" in the vase painting. We used an inception inspired model given it is one of the state of the art models of CNN models for image classification [11].
 
@@ -71,7 +74,7 @@ Once we had our labeled dataset we fitted a shield classification model, where a
 <b>Table 1. Classification model overview. </b>
 
 
-## Segmentation
+## Segmentation <a name="segmentation-model"></a>
 
 We used a U-net inspired model given it is one of the state of the art models of CNN models for image segmentation [3].
 
@@ -89,7 +92,7 @@ We used a U-net inspired model given it is one of the state of the art models of
 
 # Results
 
-## Classifier
+## Classification <a name="classification-results"></a>
 
 Once we had our labeled dataset we fitted a shield classification model, where a 0 prediction is equivalent to "no shield" in the image while a 1 indicates the presence of a "shield" in the vase painting. We used an inception inspired model given it is one of the state of the art models of CNN models for image classification [11].
 
@@ -101,7 +104,7 @@ Once we had our labeled dataset we fitted a shield classification model, where a
 
 We see that our model classification model achieves 64% and 65% accuracy on train and test sets correspondingly; given that we are working on a balanced setting, this results are positive. We can conclude that, even though the dataset size is limited, the model is able to detect shields patterns within an image and generalize it to further vases. This leads us to develop a segmentation model for detecting the position of a shield within a vase image.
 
-## Segmentation
+## Segmentation <a name="segmentation-results"></a>
 
 ![Predicted Mask](imgs/seg_pred.png?raw=true)
 <b>Fig 6. Images with predicted shields sample. The yellow area corresponds to the predicted mask by our model. </b>
