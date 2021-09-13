@@ -55,24 +55,55 @@ We had to build a segmentation dataset using the same tool as we did for labelli
 ![Original Mask](imgs/seg_target.png?raw=true)
 <b>Fig 1. Images with target shields sample. The yellow area corresponds to the hand-marked mask. </b>
 
+# Model
+
+## Clasiffier
+
+Once we had our labeled dataset we fitted a shield classification model, where a 0 prediction is equivalent to "no shield" in the image while a 1 indicates the presence of a "shield" in the vase painting. We used an inception inspired model given it is one of the state of the art models of CNN models for image classification [11].
+
+<img src="imgs/inception_model.png" width="400" height="400">
+<b>Fig 2. Classification model architecture. </b>
+
+| Number of Parameters | Number of Epochs | Optimizer | Loss | Input dim | Output dim
+| :---        |    :----:   |          ---: |
+| 7,188,889 | 100 | Adam | Binary cross-entropy | (256,256,) | (1,) |
+<b>Table 1. Classification model overview. </b>
+
+
+## Segmentation
+
+We used a U-net inspired model given it is one of the state of the art models of CNN models for image segmentation [3].
+
+<img src="imgs/u_net_model0.png" width="400" height="400">
+<b>Fig 2. Segmentation model architecture 1/2. </b>
+
+<img src="imgs/u_net_model1.png" width="400" height="400">
+<b>Fig 3. Segmentation model architecture 2/2. </b>
+
+| Number of Parameters | Number of Epochs | Optimizer | Loss | Input dim | Output dim
+| :---        |    :----:   |          ---: |
+| 688,129 | 50 | Adam | Weighted** binary cross-entropy | (256,256,) | (256,256,) |
+<b>Table 2. Segmentation model overview. </b>
+
+
 # Results
 
 ## Classifier
 
 Once we had our labeled dataset we fitted a shield classification model, where a 0 prediction is equivalent to "no shield" in the image while a 1 indicates the presence of a "shield" in the vase painting. We used an inception inspired model given it is one of the state of the art models of CNN models for image classification [11].
 
-<img src="imgs/train_cm.png" width="250" height="250">
-<b>Fig 2. Confussion matrix over train set. </b>
+<img src="imgs/train_cm.png" width="400" height="400">
+<b>Fig 4. Confussion matrix over train set. </b>
 
-<img src="imgs/test_cm.png" width="250" height="250">
-<b>Fig 3. Confussion matrix over test set. </b>
+<img src="imgs/test_cm.png" width="400" height="400">
+<b>Fig 5. Confussion matrix over test set. </b>
 
 We see that our model classification model achieves 64% and 65% accuracy on train and test sets correspondingly; given that we are working on a balanced setting, this results are positive. We can conclude that, even though the dataset size is limited, the model is able to detect shields patterns within an image and generalize it to further vases. This leads us to develop a segmentation model for detecting the position of a shield within a vase image.
 
 ## Segmentation
 
 ![Predicted Mask](imgs/seg_pred.png?raw=true)
-<b>Fig 4. Images with predicted shields sample. The yellow area corresponds to the predicted mask by our model. </b>
+<b>Fig 6. Images with predicted shields sample. The yellow area corresponds to the predicted mask by our model. </b>
 
 The resulting images on the validation set show that our model can detect the position of a shield within a vase image. It misses the exact shape, especially for paintings with thin strokes, which is not surprising. These results are promising and suggest that we could further improve our model if we increased our masking dataset. **We conclude that classification and automatic model detection is feasible for greek vases images; this could be extended to other objects within greek vases.**
 
