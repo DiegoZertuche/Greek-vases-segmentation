@@ -14,7 +14,7 @@ The current work was carried on in collaboration with Natasha Bershadsky, Lectur
         1. [Image classification and segmentation](#image-classification-and-segmentation)
         2. [AI and ML for artworks](#AI-and-ML-for-artworks)
 2. [Data](#data)
-    1. [Getting Images *Labels* and *Masks* from Labelbox](#getting-images-*labels*-and-*masks*-from-labelbox)
+    1. [Getting Images *Labels* and *Masks* from Labelbox](#getting-images-labels-and-masks-from-labelbox)
 3. [Results](#results)
     1. [Classifier](#classifier)
     2. [Segmentation](#segmentation)
