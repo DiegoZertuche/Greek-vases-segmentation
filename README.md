@@ -26,6 +26,7 @@ The current work was carried on in collaboration with Natasha Bershadsky, Lectur
 The study of ancient greek art facilitates the understanding of Greek society. Within its forms, pottery stands out due to its durability, its historical coverage and the vast amount of available samples. The extensive amount of vases obstructs their study due to the time consumption of the collection of relevant samples for a given research topic. It seems desirable to come up with some automatic object detection system for vase selection. In this work we focus on the detection of shields in vase images. We focus on two tasks:
 
 (1) **Classification**: Detect the presence of shields within greek vases images. 
+
 (2) **Segmentation**: Detect the location of the shield within the image.
 
 ## Related work
