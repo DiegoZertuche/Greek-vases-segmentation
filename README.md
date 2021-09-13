@@ -5,10 +5,16 @@
 * Andrew Lee
 * Diego Zertuche
 
+The current work was carried on in collaboration with Natasha Bershadsky, Lecturer in the Department of the Classics at Harvard University.
+
+
 # Motivation, context & framing of the problem
 
 ## Introduction
-The study of ancient greek art facilitates the understanding of Greek society. Within its forms, pottery stands out due to its durability, its historical coverage and the vast amount of available samples. The extensive amount of vases obstructs their study due to the time consumption of the collection of relevant samples for a given research topic. It seems desirable to come up with some automatic object detection system for vase selection. In this work we focus on the detection of shields in vase images. Initially, we aim to detect the presence of shields within vase images. If this turns out successful, we will move on one step further to detect the location of the shield within the image.
+The study of ancient greek art facilitates the understanding of Greek society. Within its forms, pottery stands out due to its durability, its historical coverage and the vast amount of available samples. The extensive amount of vases obstructs their study due to the time consumption of the collection of relevant samples for a given research topic. It seems desirable to come up with some automatic object detection system for vase selection. In this work we focus on the detection of shields in vase images. We focus on two tasks:
+
+(1) **Classification**: Detect the presence of shields within greek vases images. 
+(2) **Segmentation**: Detect the location of the shield within the image.
 
 ## Related work
 
@@ -22,30 +28,41 @@ Object recognition models share similar components as image classifications mode
 ### AI and ML for artworks
 Different museums and artwork centres have expressed interest in developing automatic analysis of their pieces. For instance, in 2019 the Metropolitan Museum of Art in New York uploaded a challenge to Kaggle for the recognition of artwork attributes within their collection. Multiple works have addressed object detection within artworks such as [6], [7] and [8].They relied either on CNN feature extractors or more specifically in Image Segmentation models. They are all closely related to our setting, though they are mostly applied to paintings, all with well-delimited boundaries. In the current setting, greek vases present an additional challenge imposed by the variable zoom and angle of the paintings within each vase image.
 
-## Data
+# Data
 
-### Getting Labeled Images from Labelbox
+All greek images data comes from [Arms and Armor](https://armsandarmor.orphe.us/). All the data used in this work may be accesed [here](https://drive.google.com/drive/folders/1-0yVxBM_1EHl26H6nhcBYL4v85uyJMQz?usp=sharing)
 
+## Getting Images *Labels* and *Masks* from Labelbox
+
+### Classification Labels
 Given the problem that there were multiple images with different angles of the vases, we had to go through all the shield images manually and label the images that actually had a visible shield in the image. We used [Labelbox](https://labelbox.com/) for this task. We then downloaded the manually labeled data from Labelbox and loaded only the images that actually had the shields in the image and had around 1,800 images with shields. We took a random sample of the non-shield images that matched the size of our shield data, and this is how we created our working dataset for the classification model. We split the data in train and test partitions, taking into account the vase numbers, to ensure that different images from the same vase were not in the train and test set.
 
+## Segmentation maks
+We had to build a segmentation dataset using the same tool as we did for labelling images (LabelBox). Given the time required to hand-make the masks and our uncertainty of how difficult the task was for the model, we decided to filter shields that were "easy" for detection. We selected half of the most promising vase images for mask making, with clear views of the shields and where the shields followed conventional shapes (very rounded or oval). The resulting masked dataset contains 852 masked images, further splitted into train, test and validation sets.
+
 ![Original Mask](imgs/seg_target.png?raw=true)
-| <b>Image Credits - Fig.2 - 4K Mountains Wallpaper</b>|
+<b>Fig 1. Images with target shields sample. The yellow area corresponds to the hand-marked mask. </b>
 
-## Results
+# Results
 
-### Classifier
+## Classifier
 
 Once we had our labeled dataset we fitted a shield classification model, where a 0 prediction is equivalent to "no shield" in the image while a 1 indicates the presence of a "shield" in the vase painting. We used an inception inspired model given it is one of the state of the art models of CNN models for image classification [11].
 
+![Original Mask](imgs/train_cm.png?raw=true)
+<b>Fig 2. Confussion matrix over train set. </b>
+
+![Original Mask](imgs/test_cm.png?raw=true)
+<b>Fig 2. Confussion matrix over test set. </b>
+
 We see that our model classification model achieves 64% and 65% accuracy on train and test sets correspondingly; given that we are working on a balanced setting, this results are positive. We can conclude that, even though the dataset size is limited, the model is able to detect shields patterns within an image and generalize it to further vases. This leads us to develop a segmentation model for detecting the position of a shield within a vase image.
 
-### Segmentation
+## Segmentation
 
 ![Predicted Mask](imgs/seg_pred.png?raw=true)
+<b>Fig 4. Images with predicted shields sample. The yellow area corresponds to the predicted mask by our model. </b>
 
-The resulting images on the validation set show that our model can detect the position of a shield within a vase image. It misses the exact shape, especially for paintings with thin strokes, which is not surprising. These results are promising and suggest that we could further improve our model if we increased our masking dataset. We conclude that classification and automatic model detection is feasible for greek vases images; this could be extended to other objects within greek vases.
-
-
+The resulting images on the validation set show that our model can detect the position of a shield within a vase image. It misses the exact shape, especially for paintings with thin strokes, which is not surprising. These results are promising and suggest that we could further improve our model if we increased our masking dataset. **We conclude that classification and automatic model detection is feasible for greek vases images; this could be extended to other objects within greek vases.**
 
 # References
 
