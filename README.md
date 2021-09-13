@@ -8,10 +8,11 @@
 The current work was carried on in collaboration with Natasha Bershadsky, Lecturer in the Department of the Classics at Harvard University.
 
 # Table of Contents
-1. [Motivation, context & framing of the problem](motivation,-context-&-framing-of-the-problem)
-2. [Data](#data)
-3. [Results](#results)
-4. [References](#references)
+1. [Motivation, context & framing of the problem](#motivation,-context-&-framing-of-the-problem)
+  1.1 [Introduction](##introduction)
+3. [Data](#data)
+4. [Results](#results)
+5. [References](#references)
 
 # Motivation, context & framing of the problem
 
