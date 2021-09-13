@@ -9,10 +9,10 @@ The current work was carried on in collaboration with Natasha Bershadsky, Lectur
 
 # Table of Contents
 1. [Motivation, context & framing of the problem](#motivation,-context-&-framing-of-the-problem)
-  1. [Introduction](#introduction)
-  2. [Related work](#related-work)
-    1. [Image classification and segmentation](#image-classification-and-segmentation)
-    2. [AI and ML for artworks](#AI-and-ML-for-artworks)
+    1. [Introduction](#introduction)
+    2. [Related work](#related-work)
+        1. [Image classification and segmentation](#image-classification-and-segmentation)
+        2. [AI and ML for artworks](#AI-and-ML-for-artworks)
 2. [Data](#data)
   1. [Getting Images *Labels* and *Masks* from Labelbox](#getting-images-*labels*-and-*masks*-from-labelbox)
 4. [Results](#results)
