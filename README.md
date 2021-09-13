@@ -105,9 +105,9 @@ Once we had our labeled dataset we fitted a shield classification model, where a
 
 <img src="imgs/test_cm.png" width="400" height="400">
 <b>Fig 5. Confussion matrix over test set. </b>
-
-
 &nbsp;
+
+
 We see that our model classification model achieves 64% and 65% accuracy on train and test sets correspondingly; given that we are working on a balanced setting, this results are positive. We can conclude that, even though the dataset size is limited, the model is able to detect shields patterns within an image and generalize it to further vases. This leads us to develop a segmentation model for detecting the position of a shield within a vase image.
 
 ## Segmentation <a name="segmentation-results"></a>
