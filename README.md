@@ -1,9 +1,9 @@
 # Final Project for "CS109b: Advanced Topics in Data Science" at Harvard University
 
 ## Members
+* Diego Zertuche
 * Javiera Astudillo
 * Andrew Lee
-* Diego Zertuche
 
 The current work was carried on in collaboration with Natasha Bershadsky, Lecturer in the Department of the Classics at Harvard University.
 
